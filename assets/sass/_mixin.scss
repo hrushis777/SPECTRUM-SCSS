@@ -1,0 +1,77 @@
+@mixin flex{
+  display: flex;
+}
+@mixin justify-content($value) {
+  justify-content:$value;
+ }
+
+@mixin align-items($value) {
+  align-items: $value;
+}
+@mixin flex-wrap{
+  flex-wrap: wrap;
+}
+@mixin block{
+  display: block;
+}
+@mixin transition{
+  transition: all 0.3s linear;
+}
+@mixin breakpoint($point) {
+  @if
+  $point == Desktop {
+      @media(max-width:1024px) {  @content; } 
+  } 
+  @else if
+  $point == Tablet{
+      @media(max-width:992px) {  @content; } 
+  } 
+  @else if
+  $point == L-Phone {
+      @media(max-width:720px) {  @content; } 
+  } 
+  @else if
+  $point == Phone {
+      @media(max-width:540px) {  @content; } 
+  } 
+  @else if
+  $point == samll-display {
+      @media(max-width:468px) {  @content; } 
+  } 
+  
+}
+
+@mixin heading($color){
+  h2 {
+    display: inline-block;
+    position: relative;
+    color: $color;
+    font-family: sans-serif;
+    font-size: 42px;
+    font-weight: 500;
+    cursor: pointer;
+    text-transform: capitalize;
+    &::before {
+      content: '';
+      width: 60%;
+      height: 1px;
+      position: absolute;
+      top: 132%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #464E54;
+      transition: all .3s linear;
+    }
+  }
+}
+// @mixin center($left,$top,$transform,$color){
+//     content: '';
+//     width: 60%;
+//     height: 1px;
+//     position: absolute;
+//     top: $top;
+//     left: $left;
+//     transform: $transform;
+//     background: #464E54;
+//     transition: all .3s linear;
+// }

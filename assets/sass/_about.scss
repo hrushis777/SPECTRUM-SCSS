@@ -1,0 +1,74 @@
+.about-me{ 
+  padding:6% 0; 
+  background: $primary-bg;
+
+  .wrapper { 
+    max-width:969px;
+    text-align: center;
+    @include heading($text-secondary);
+
+    .about-container{  
+      @include flex;
+      @include flex-wrap;
+      @include justify-content(space-between);
+      margin-top: 100px;
+      @include breakpoint(L-Phone){
+        @include block;
+      }
+      
+      figure{ flex-basis: 45%;
+        img {
+          max-width: 397px;
+          width:100%;
+          height: auto;
+         }
+         @include breakpoint(L-Phone){
+          margin-bottom: 9%;
+         }
+      }
+      .right-para {
+        max-width:524px;
+        color:$text-secondary;
+        font: 16px sans-serif;
+        text-align: justify;
+        flex-basis: 45%;
+        
+        p { margin-bottom: 5%; }
+        span{ 
+           @include block;
+           padding-top: 20px;
+           }
+        a {
+          width: 80%;
+          padding: 18px 1px;
+          margin-top: 7%;
+          display: inline-block;
+          background: $text-secondary;
+          color: $primary-bg;
+          text-align: center;
+          text-transform: uppercase;
+          @include transition;
+          text-decoration: none;
+          font-size: 19px;
+          @include breakpoint(L-Phone){
+            padding: 15px 0px;
+            font-size: 12px;
+            margin: 0px 51px;
+            @include breakpoint(samll-display){
+              width: 100%;
+              padding: 8px 1px;
+              margin: 0 auto;
+              font-size: 15px;
+            } 
+          }
+          &:hover {
+            border: 1px solid $light;
+            background: transparent;
+            color:$text-secondary;
+            font-weight: 500;
+          } 
+        }
+      }        
+    }
+  }
+}

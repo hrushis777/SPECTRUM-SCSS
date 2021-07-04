@@ -1,0 +1,176 @@
+header {
+  width:100%;
+  padding:35px;
+  position: absolute;
+  z-index: 100;
+    
+  .wrapper {
+    @include flex();
+    @include justify-content(space-between);
+    h1 a{
+      position: relative;
+      color: $low-color;  
+      font: 400 25px sans-serif; 
+      text-transform: uppercase;
+      text-decoration: none;
+      opacity: 0.9;
+  
+      &::before {
+       content: '\f0d8';
+       position: absolute;
+       top: -24%;
+       left: -20%;
+       color: #43d0de;
+       font: 900 39px "Font Awesome 5 free";
+       opacity: 0.9;
+      }
+    }
+    nav{
+      li { 
+        display: inline-block;
+        .active{ color:$text-main; }
+          
+        a {
+          margin-left: 25px;
+          @include block;
+          color: $low-color;
+          font: 16px sans-serif;
+          text-decoration: none;
+          text-transform: uppercase;
+          @include transition;
+          opacity: 0.9;
+      
+          &:hover { color:$text-main ; }
+        }    
+      }
+    } 
+
+    @include breakpoint(Tablet){
+      @include block;
+      width: 100%;
+      text-align: center;
+      h1{ float: left;
+        margin-left: 10%;
+      }
+      
+      .navbar {
+        background-color: #333;
+        width: 50%;
+        height: 100vh;
+        display: none;
+        float: right;
+        margin: -33px -7% 0%;
+      }
+
+      .navbar {
+        overflow: hidden;
+        list-style-type: none;
+        padding: 6% 0 0% 6%;
+        margin: -4% -7%;
+      }
+
+      .navbar li {
+        display: block;
+        padding: 5% 50px;
+        width: 100%;
+        margin: 4% 0% 0% -9%;
+      }
+      
+      .navbar li:hover {
+        cursor: pointer;
+      }
+      .navbar li a {
+        color: $light;
+        text-decoration: none;
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.6em;
+        transition: all .5s;
+      }
+
+      .navbar li:hover {
+        cursor: pointer;
+        letter-spacing: 10px;
+      }
+
+      .hamburger {
+        margin: 0;
+        margin-left: -3%;
+        padding: 0;
+        float: right;
+        transition: opacity .3s;
+      }
+
+      .hamburger:hover {
+        cursor: pointer;
+        opacity: .5;
+      }
+
+      .hamburger .line{
+        width: 50px;
+        height: 5px;
+        margin: 8px auto;
+       @include transition;
+        border-radius: 5px;
+      }
+
+      .hamburger .line:nth-child(1) {
+        background-color: $text-main;
+      }
+
+      .hamburger .line:nth-child(2) {
+        background-color: $text-secondary;
+      }
+
+      .hamburger .line:nth-child(3) {
+        background-color: $text-main;
+      }
+
+      .hamburger.isactive .line:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.isactive .line:nth-child(1) {
+        transform: translateY(13px) rotate(45deg);
+      }
+
+      .hamburger.isactive .line:nth-child(3) {
+        transform: translateY(-13px) rotate(-45deg);
+      }
+
+      .navbar {
+        @include transition;
+      }
+
+      .navbar.active {
+        display: block;
+        animation: fade .5s;
+      }
+
+      @keyframes fade {
+        from{transform: translateX(400px); opacity: 0;}
+        to {transform: translateX(0px); opacity: 1;}
+      }
+    }
+    @include breakpoint(L-Phone){
+      .navbar { margin: -5% -9%; }
+      @include breakpoint(L-Phone){
+        .navbar {
+          margin: -6% -14%;
+          padding: 18% 0 0% 6%;
+        }     
+        @include breakpoint(Phone){
+          .navbar {
+            margin: -10% -20%;
+            padding: 26% 0px 0% 0%;
+          }
+         .navbar li {
+            padding: 5% 0px;
+            margin: 4% 0% 0% -2%;
+            .navbar li a { font-size: 20px; }
+          }
+        }     
+      } 
+    }
+  }
+} 
+     
